@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+
+    redis1:
+        container_name: redis_m
+        build:
+            context: .
+            dockerfile: docker/redis/master/Dockerfile
+        restart: on-failure
+        networks:
+            ha-network:
+                ipv4_address: 172.20.0.2
+
+    redis2:
+        container_name: redis_s1
+        build:
+            context: .
+            dockerfile: docker/redis/slave1/Dockerfile
+        restart: on-failure
+        networks:
+            ha-network:
+                ipv4_address: 172.20.0.3
+
+    redis3:
+        container_name: redis_s2
+        build:
+            context: .
+            dockerfile: docker/redis/slave2/Dockerfile
+        restart: on-failure
+        networks:
+            ha-network:
+                ipv4_address: 172.20.0.4
+
+networks:
+    ha-network:
+        driver: bridge
+        ipam:
+            config:
+                -   subnet: 172.20.0.0/24
