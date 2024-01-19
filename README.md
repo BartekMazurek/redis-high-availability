@@ -6,7 +6,7 @@
 > docker-compose up -d
 
 ## 2 - How to check current master in Redis Sentinel
-> redis-cli -p SENTINEL masters
+> redis-cli -p 26379 SENTINEL masters
 
 ## 3 - How to test
 > **1** - Start redis replica with docker-compose command
