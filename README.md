@@ -1,5 +1,7 @@
 # Redis & Sentinel - high availability replica example
 
+![RedisSentinel](RedisSentinel.png)
+
 > Redis high availability replica docker setup with 3 nodes: master (172.20.0.2), slave1 (172.20.0.3), slave2 (172.20.0.4)
 
 ## 1 - How to setup
